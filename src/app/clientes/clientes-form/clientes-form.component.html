@@ -8,14 +8,30 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>ID:</label>
-          <input type="text" class="form-control" disabled="true" />
+          <!--
+          [ngModel] is a directive in Angular that binds the input element to a property on the component.
+          In this case, it binds the input to the 'id' property of the 'cliente' object.
+          -->
+          <input
+            type="text"
+            name="id"
+            [ngModel]="cliente.id"
+            class="form-control"
+            disabled="true"
+          />
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label>Data cadastro:</label>
-          <input type="text" class="form-control" disabled="true" />
+          <input
+            type="text"
+            class="form-control"
+            name="dataCadastro"
+            [ngModel]="cliente.dataCadastro"
+            disabled="true"
+          />
         </div>
       </div>
     </div>
@@ -24,22 +40,41 @@
       <div class="col-md-6">
         <div class="form-group">
           <label>Nome: *</label>
-          <input type="text" class="form-control" />
+          <!--
+          [(ngModel)] is a two-way data binding directive in Angular. It binds the input element to a property
+          on the component and also updates the property when the user makes changes to the input. [ngModel] is
+          one-way data binding, which only binds the input element to the property without updating it.
+          -->
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="cliente.nome"
+            name="nome"
+          />
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <label>CPF: *</label>
-          <input type="text" class="form-control" />
+          <input
+            type="text"
+            class="form-control"
+            name="cpf"
+            [(ngModel)]="cliente.cpf"
+          />
         </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-2">
-        <button type="submit" class="btn btn-success">
-          <i class="fa fa-save"></i> Salvar
+        <!--
+        (click) is an Angular event binding syntax. It binds the button's click event to a method on
+        the component. When the button is clicked, the specified method is called.
+        -->
+        <button type="button" class="btn btn-primary" (click)="save()">
+          Save
         </button>
       </div>
     </div>
