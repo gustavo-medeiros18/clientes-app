@@ -3,7 +3,16 @@
   <li class="breadcrumb-item active">Cadastro</li>
 </ol>
 <div class="container">
-  <form>
+  <!--
+  The '#' symbol is used to create a template reference variable in Angular.
+
+  In this case, 'clienteForm' is a reference to the form element, and 'ngForm' is an Angular
+  directive that binds the form to the Angular form model.
+
+  (ngSubmit) is an Angular event binding that listens for the form's submit event.
+  When the form is submitted, it calls the 'onSubmit()' method on the component.
+  -->
+  <form #clienteForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -73,7 +82,7 @@
         (click) is an Angular event binding syntax. It binds the button's click event to a method on
         the component. When the button is clicked, the specified method is called.
         -->
-        <button type="button" class="btn btn-primary" (click)="save()">
+        <button type="button" class="btn btn-primary" (click)="onSubmit()">
           Save
         </button>
       </div>
