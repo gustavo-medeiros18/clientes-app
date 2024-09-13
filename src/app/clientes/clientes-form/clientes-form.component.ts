@@ -17,6 +17,13 @@ export class ClientesFormComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit() {
-    console.log(this.cliente);
+    /**
+     * The subscribe method is used to execute the Observable returned by the salvar method.
+     * It is necessary to call it here to actually send the HTTP POST request and handle the
+     * response or any errors that may occur.
+     */
+    this.service.salvar(this.cliente).subscribe((response) => {
+      console.log(response);
+    });
   }
 }
