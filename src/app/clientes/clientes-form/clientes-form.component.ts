@@ -23,6 +23,9 @@ export class ClientesFormComponent implements OnInit {
      * The subscribe method is used to execute the Observable returned by the salvar method.
      * It is necessary to call it here to actually send the HTTP POST request and handle the
      * response or any errors that may occur.
+     * 
+     * First callback function is executed when the request is successful. The second callback
+     * function is executed when an error occurs.
      */
     this.service.salvar(this.cliente).subscribe(
       (response) => {
