@@ -18,7 +18,7 @@ import { ClientesModule } from './clientes/clientes.module';
     TemplateModule,
     ClientesModule
   ],
-  providers: [],
+  providers: [ClientesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
