@@ -24,8 +24,14 @@ export class ClientesFormComponent implements OnInit {
      * It is necessary to call it here to actually send the HTTP POST request and handle the
      * response or any errors that may occur.
      */
-    this.service.salvar(this.cliente).subscribe((response) => {
+    this.service.salvar(this.cliente).subscribe(
+      (response) => {
       this.success = true;
-    });
+      },
+      (errorResponse) => {
+        this.success = false;
+        this.errors = errorResponse.error.errors;
+      }
+    );
   }
 }
