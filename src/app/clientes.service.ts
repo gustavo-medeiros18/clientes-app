@@ -31,4 +31,8 @@ export class ClientesService {
 
     return cliente;
   }
+
+  getClientes(): Observable<Cliente[]> {
+    return null;
+  }
 }
