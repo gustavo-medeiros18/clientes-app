@@ -101,13 +101,17 @@
     </div>
 
     <div class="row">
-      <div class="col-md-2">
+      <div class="col-md-3">
         <!--
         (click) is an Angular event binding syntax. It binds the button's click event to a method on
         the component. When the button is clicked, the specified method is called.
         -->
-        <button type="button" class="btn btn-primary" (click)="onSubmit()">
-          Save
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="button" class="btn btn-warning ml-1" (click)="voltarParaListagem()">
+          <i class="fa fa-arrow-alt-circle-left"></i> Voltar
         </button>
       </div>
     </div>
