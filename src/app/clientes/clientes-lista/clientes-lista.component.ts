@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../cliente';
 import { ClientesService } from 'src/app/clientes.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes-lista',
@@ -10,11 +11,18 @@ import { ClientesService } from 'src/app/clientes.service';
 export class ClientesListaComponent implements OnInit {
   clientes: Cliente[] = [];
 
-  constructor(private service: ClientesService) {}
+  // The service is used to fetch the list of clients from the backend.
+  // The router is used to navigate between different routes in the application.
+  constructor(private service: ClientesService, private router: Router) {}
 
   ngOnInit(): void {
     this.service.getClientes().subscribe((response) => {
       this.clientes = response;
     });
+  }
+
+  novoCadastro() {
+    // The navigate method is used to programmatically navigate to the 'clientes-form' route.
+    this.router.navigate(['/clientes-form']);
   }
 }
