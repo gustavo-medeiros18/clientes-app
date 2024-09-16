@@ -32,14 +32,7 @@ export class ClientesService {
     return cliente;
   }
 
-  getClientes(): Cliente[] {
-    let cliente = new Cliente();
-
-    cliente.id = 1;
-    cliente.nome = 'Fulano';
-    cliente.dataCadastro = '16/09/2024';
-    cliente.cpf = '12345678900';
-
-    return [cliente];
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>('http://localhost:8080/api/clientes');
   }
 }
