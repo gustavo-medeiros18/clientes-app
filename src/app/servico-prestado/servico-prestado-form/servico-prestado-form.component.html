@@ -23,5 +23,58 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Descrição:</label>
+          <input
+            class="form-control"
+            [(ngModel)]="servico.descricao"
+            type="text"
+            name="descricao"
+            id="inputDescricao"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Data:</label>
+          <input
+            class="form-control"
+            [(ngModel)]="servico.data"
+            type="text"
+            name="data"
+            id="inputData"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Preço:</label>
+          <input
+            class="form-control"
+            [(ngModel)]="servico.preco"
+            type="number"
+            name="preco"
+            id="inputPreco"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success">
+          <i class="fa fa-save"></i> Salvar
+        </button>
+      </div>
+    </div>
   </form>
 </div>
