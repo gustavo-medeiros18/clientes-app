@@ -46,4 +46,23 @@
       </table>
     </div>
   </div>
+
+  <div id="modalDelecao" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4><i class="fa fa-warning"></i> Confirmação de deleção</h4>
+        </div>
+
+        <div class="modal-body" *ngIf="clienteSelecionado">
+          <p>Tem certeza que deseja excluir o(a) cliente {{ clienteSelecionado.nome }}?</p>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-success">Confirma</button>
+          <button class="btn btn-danger" data-dismiss="modal">Cancela</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
