@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class ClientesListaComponent implements OnInit {
   clientes: Cliente[] = [];
   clienteSelecionado: Cliente;
+  mensagemSucesso: string;
+  mensagemErro: string;
 
   /**
    * The service is used to fetch the list of clients from the backend.
@@ -34,5 +36,17 @@ export class ClientesListaComponent implements OnInit {
 
   preparaDelecao(cliente: Cliente) {
     this.clienteSelecionado = cliente;
+  }
+
+  deletarCliente() {
+    this.service.deletar(this.clienteSelecionado).subscribe(
+      (response) => {
+        this.mensagemSucesso = 'Cliente deletado com sucesso!';
+        this.ngOnInit();
+      },
+      (error) => {
+        this.mensagemErro = 'Ocorreu um erro ao deletar o cliente.';
+      }
+    );
   }
 }
