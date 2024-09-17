@@ -24,6 +24,15 @@ export class ClientesService {
     );
   }
 
+  atualizar(cliente: Cliente): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.put<Cliente>(
+      `http://localhost:8080/api/clientes/${cliente.id}`,
+      cliente,
+      { headers }
+    );
+  }
+
   getCliente(): Cliente {
     let cliente: Cliente = new Cliente();
     cliente.nome = 'Fulano de Tal';
