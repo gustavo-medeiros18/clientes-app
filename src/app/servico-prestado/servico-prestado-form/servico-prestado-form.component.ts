@@ -13,6 +13,9 @@ export class ServicoPrestadoFormComponent implements OnInit {
   constructor(private clienteService: ClientesService) {}
 
   ngOnInit(): void {
+    this.clienteService
+      .getClientes()
+      .subscribe((response) => (this.clientes = response));
   }
 
 }
