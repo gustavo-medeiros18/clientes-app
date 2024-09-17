@@ -23,6 +23,6 @@ export class ServicoPrestadoFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Submit');
+    console.log(this.servico);
   }
 }
