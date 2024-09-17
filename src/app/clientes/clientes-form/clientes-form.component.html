@@ -106,8 +106,12 @@
         (click) is an Angular event binding syntax. It binds the button's click event to a method on
         the component. When the button is clicked, the specified method is called.
         -->
-        <button type="submit" class="btn btn-primary">
+        <button type="submit" class="btn btn-primary" *ngIf = "!cliente.id">
           <i class="fa fa-save"></i> Salvar
+        </button>
+
+        <button type="submit" class="btn btn-secondary" *ngIf = "cliente.id">
+          <i class="fa fa-sync-alt"></i> Atualizar
         </button>
 
         <button type="button" class="btn btn-warning ml-1" (click)="voltarParaListagem()">
