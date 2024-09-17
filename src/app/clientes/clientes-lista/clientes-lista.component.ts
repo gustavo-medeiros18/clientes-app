@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ClientesListaComponent implements OnInit {
   clientes: Cliente[] = [];
+  clienteSelecionado: Cliente;
 
   // The service is used to fetch the list of clients from the backend.
   // The router is used to navigate between different routes in the application.
@@ -24,5 +25,9 @@ export class ClientesListaComponent implements OnInit {
   novoCadastro() {
     // The navigate method is used to programmatically navigate to the 'clientes-form' route.
     this.router.navigate(['/clientes-form']);
+  }
+
+  preparaDelecao(cliente: Cliente) {
+    this.clienteSelecionado = cliente;
   }
 }
