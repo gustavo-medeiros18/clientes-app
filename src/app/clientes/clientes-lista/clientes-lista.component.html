@@ -5,6 +5,22 @@
 
 <div class="container">
   <div class="row">
+    <div class="col-md-12">
+      <!--
+      *ngIf is a structural directive in Angular that conditionally includes a template based on the value of an expression.
+      If the expression evaluates to true, the element is included in the DOM; otherwise, it is not.
+      -->
+      <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+        {{ mensagemSucesso }}
+      </div>
+
+      <div class="alert alert-success" role="alert" *ngIf="mensagemErro">
+        {{ mensagemErro }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-md-2">
       <button class="btn btn-info" (click)="novoCadastro()">
         <i class="fa fa-plus"></i> Novo
