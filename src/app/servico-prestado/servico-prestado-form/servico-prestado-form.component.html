@@ -8,6 +8,30 @@
   <form #form="ngForm" (submit)="onSubmit()">
     <div class="row">
       <div class="col-md-12">
+        <!--
+        *ngIf is a structural directive in Angular that conditionally includes a template based on the value of an expression.
+        If the expression evaluates to true, the element is included in the DOM; otherwise, it is not.
+        -->
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Serviço salvo/atualizado com sucesso!
+        </div>
+
+        <!--
+        *ngFor is a structural directive in Angular that repeats a template for each item in a list.
+        In this case, it iterates over the 'errors' array and creates a new 'div' element for each error.
+        -->
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngFor="let erro of errors"
+        >
+          {{ erro }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
         <div class="form-group">
           <label>Cliente: </label>
           <select
