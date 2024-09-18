@@ -10,6 +10,9 @@ import { ServicoPrestadoService } from 'src/app/servico-prestado.service';
 export class ServicoPrestadoListaComponent implements OnInit {
   nome: string;
   mes: number;
+  meses: number[];
+  lista: ServicoPrestadoBusca[];
+
   constructor(private servicoPrestadoService: ServicoPrestadoService) {
     this.meses = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   }
@@ -17,6 +20,15 @@ export class ServicoPrestadoListaComponent implements OnInit {
   ngOnInit(): void {}
 
   consultar() {
-    console.log(this.nome, this.mes);
+    this.servicoPrestadoService.buscar(this.nome, this.mes).subscribe(
+      (response) => {
+        this.lista = response;
+        console.log(this.lista);
+      },
+      (errorResponse) => {
+        this.lista = [];
+        alert('Ocorreu um erro ao buscar os registros.');
+      }
+    );
   }
 }
