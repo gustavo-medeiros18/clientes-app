@@ -10,7 +10,7 @@
               </div>
 
               <div class="card-body">
-                <div class="alert alert-danger">
+                <div class="alert alert-danger" *ngIf="loginError">
                   Login e/ou senha incorretos.
                 </div>
 
