@@ -41,6 +41,23 @@
                     <button type="submit" class="btn btn-primary">
                       Enviar
                     </button>
+
+                    <button
+                      type="submit"
+                      class="btn btn-success"
+                      *ngIf="cadastrando"
+                    >
+                      Cadastrar
+                    </button>
+
+                    <button
+                      type="submit"
+                      (click)="cancelaCadastro()"
+                      class="btn btn-danger ml-1"
+                      *ngIf="cadastrando"
+                    >
+                      Cancelar
+                    </button>
                   </div>
                 </form>
               </div>
