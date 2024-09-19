@@ -31,7 +31,7 @@ export class ClientesListaComponent implements OnInit {
      * The navigate method is used to programmatically navigate to
      * the 'clientes-form' route.
      */
-    this.router.navigate(['/clientes-form']);
+    this.router.navigate(['/clientes/form']);
   }
 
   preparaDelecao(cliente: Cliente) {
