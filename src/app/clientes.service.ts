@@ -46,7 +46,21 @@ export class ClientesService {
   }
 
   getClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiUrl);
+    /**
+     * O método localStorage.setItem() é usado para armazenar dados no localStorage do navegador.
+     * Ele armazena o valor associado a uma chave específica.
+     * A diferença entre localStorage e sessionStorage é que os dados armazenados no localStorage persistem mesmo após o fechamento do navegador,
+     * enquanto os dados no sessionStorage são removidos quando a sessão do navegador é encerrada.
+     */
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token.access_token,
+    };
+
+    return this.http.get<Cliente[]>(this.apiUrl, { headers });
   }
 
   deletar(cliente: Cliente): Observable<any> {
