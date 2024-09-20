@@ -13,6 +13,7 @@ export class LoginComponent {
   password: string;
   cadastrando: boolean;
   mensagemSucesso: string;
+  errors: string[];
 
   constructor(private router: Router, private authService: AuthService) {}
 
@@ -38,13 +39,13 @@ export class LoginComponent {
 
     this.authService.salvar(usuario).subscribe(
       (response) => {
-        this.loginError = false;
         this.mensagemSucesso =
           'Cadastro realizado com sucesso! Efetue o login.';
         // this.router.navigate(['/home']);
       },
       (errorResponse) => {
         this.mensagemSucesso = null;
+        this.errors = errorResponse.error.errors;
       }
     );
   }
