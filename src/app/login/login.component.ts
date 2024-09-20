@@ -41,6 +41,9 @@ export class LoginComponent {
       (response) => {
         this.mensagemSucesso =
           'Cadastro realizado com sucesso! Efetue o login.';
+        this.cadastrando = false;
+        this.username = this.password = '';
+        this.errors = null;
         // this.router.navigate(['/home']);
       },
       (errorResponse) => {
