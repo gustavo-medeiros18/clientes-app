@@ -11,7 +11,6 @@ import { Usuario } from './usuario';
 export class LoginComponent {
   username: string;
   password: string;
-  loginError: boolean;
   cadastrando: boolean;
   mensagemSucesso: string;
 
@@ -45,7 +44,6 @@ export class LoginComponent {
         // this.router.navigate(['/home']);
       },
       (errorResponse) => {
-        this.loginError = true;
         this.mensagemSucesso = null;
       }
     );
