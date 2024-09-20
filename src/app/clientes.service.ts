@@ -13,7 +13,14 @@ export class ClientesService {
   constructor(private http: HttpClient) {}
 
   salvar(cliente: Cliente): Observable<Cliente> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const tokenString = localStorage.getItem('access_token');
+    const token = JSON.parse(tokenString);
+
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token.access_token,
+    };
+
     return this.http.post<Cliente>(this.apiUrl, cliente, {
       headers,
     });
