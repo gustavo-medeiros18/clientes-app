@@ -21,8 +21,14 @@ export class LoginComponent {
     this.authService.tentarLogar(this.username, this.password).subscribe(
       (response) => {
         const accessToken = JSON.stringify(response);
-        console.log(accessToken);
 
+        /**
+         * The localStorage.setItem() method is used to store data in the browser's localStorage.
+         * It stores the value associated with a specific key.
+         * The difference between localStorage and sessionStorage is that data stored in localStorage
+         * persists even after the browser is closed, while data in sessionStorage is
+         * removed when the browser session ends.
+         */
         localStorage.setItem('access_token', accessToken);
         this.router.navigate(['/home']);
       },
