@@ -9,6 +9,9 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   apiUrl: string = `${environment.apiUrl}/usuarios`;
+  tokenUrl: string = environment.obterTokenUrl;
+  clientId: string = environment.clientId;
+  clientSecret: string = environment.clientSecret;
 
   constructor(private http: HttpClient) {}
 
