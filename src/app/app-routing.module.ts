@@ -22,6 +22,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: '', redirectTo: '/home', pathMatch: 'full' },
     ],
   },
 ];
