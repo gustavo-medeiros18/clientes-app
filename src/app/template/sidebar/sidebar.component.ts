@@ -16,4 +16,8 @@ export class SidebarComponent implements OnInit {
     this.usuarioLogado = this.authService.getUsuarioAutenticado();
   }
 
+  logout() {
+    this.authService.encerrarSessao();
+    this.router.navigate(['/login']);
+  }
 }
