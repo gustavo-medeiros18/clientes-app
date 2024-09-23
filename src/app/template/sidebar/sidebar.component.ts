@@ -8,10 +8,12 @@ import { AuthService } from 'src/app/auth.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  usuarioLogado: string;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.usuarioLogado = this.authService.getUsuarioAutenticado();
   }
 
 }
