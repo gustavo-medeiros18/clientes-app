@@ -17,6 +17,15 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
+  obterToken() {
+    const tokenString = localStorage.getItem('access_token');
+
+    if (tokenString) {
+      const token = JSON.parse(tokenString).access_token;
+      return token;
+    }
+  }
+
   isAuthenticated(): boolean {
     return false;
   }
