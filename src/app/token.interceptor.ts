@@ -25,8 +25,9 @@ export class TokenInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     const tokenString = localStorage.getItem('access_token');
+    const url = request.url;
 
-    if (tokenString) {
+    if (tokenString && !url.includes('oauth/token')) {
       const token = JSON.parse(tokenString);
       const jwt = `Bearer ${token.access_token}`;
 
