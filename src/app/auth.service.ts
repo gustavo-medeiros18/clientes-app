@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Usuario } from './login/usuario';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ export class AuthService {
   tokenUrl: string = environment.obterTokenUrl;
   clientId: string = environment.clientId;
   clientSecret: string = environment.clientSecret;
+  jwtHelper: JwtHelperService = new JwtHelperService();
 
   constructor(private http: HttpClient) {}
 
